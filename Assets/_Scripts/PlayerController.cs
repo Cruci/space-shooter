@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,14 +11,33 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public Boundary boundary;
+    public GameObject projectileSpawn;
 
+    private GameObject[] projectilesSpawns;
     public float speed;
     public float tilt;
+    public float fireRate;
+
+    private float nextFire;
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            projectilesSpawns = GameObject.FindGameObjectsWithTag("Projectile");
+
+            foreach (GameObject spawn in projectilesSpawns)
+            {
+                Instantiate(projectileSpawn, spawn.transform.position, spawn.transform.rotation);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -38,6 +55,6 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
         );
 
-        rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
+        rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * (-tilt / 10));
     }
 }
