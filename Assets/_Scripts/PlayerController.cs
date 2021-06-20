@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject[] projectilesSpawns;
     private AudioSource playerProjectileAudio;
+
     private float nextFire;
 
     // Start is called before the first frame update
