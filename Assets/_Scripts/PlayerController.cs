@@ -13,17 +13,19 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
     public GameObject projectileSpawn;
 
-    private GameObject[] projectilesSpawns;
     public float speed;
     public float tilt;
     public float fireRate;
 
+    private GameObject[] projectilesSpawns;
+    private AudioSource playerProjectileAudio;
     private float nextFire;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerProjectileAudio = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
     }
 
     void Update()
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour
             foreach (GameObject spawn in projectilesSpawns)
             {
                 Instantiate(projectileSpawn, spawn.transform.position, spawn.transform.rotation);
+            }
+            
+            if (playerProjectileAudio != null)
+            {
+                playerProjectileAudio.Play();
             }
         }
     }
