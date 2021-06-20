@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Hazard
   - Boundary
+  - ScoreText
   layers:
   - Default
   - TransparentFX

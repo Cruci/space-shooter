@@ -8,6 +8,7 @@ public class DestroyByBoundary : MonoBehaviour
         {
             Destroy(other.gameObject.transform.parent.gameObject);
         }
+
         Destroy(other.gameObject);
     }
 }
