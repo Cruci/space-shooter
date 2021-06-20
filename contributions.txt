@@ -1,0 +1,4 @@
+Asset authors:
+3D Models, textures, player audio and asteroid audio, www.kenney.nl
+Player explosion spritesheet author sinestesia; opengameart.org. Facebook: /sinestesiastudio
+Background music: through space. Author: maxstack; opengameart.org
