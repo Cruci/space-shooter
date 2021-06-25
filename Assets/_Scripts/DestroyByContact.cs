@@ -28,12 +28,16 @@ public class DestroyByContact : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Boundary"))
+        if (other.CompareTag("Boundary") || other.CompareTag("Enemy"))
         {
             return;
         }
 
-        Instantiate(explosion, transform.position, transform.rotation);
+        if (explosion)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+
+        }
 
         if (other.CompareTag("Player")) 
         {

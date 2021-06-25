@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 3879733997888747371}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   projectileSpawn: {fileID: 2015575881783262087, guid: 856becf177659d54bb75600258ca24b5, type: 3}
   speed: 50
   tilt: 3
-  fireRate: 0.25
+  fireRate: 0.5
 --- !u!82 &3879733997888747371
 AudioSource:
   m_ObjectHideFlags: 0
