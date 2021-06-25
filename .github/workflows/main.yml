@@ -14,6 +14,8 @@ jobs:
       matrix:
         unityVersion:
           - 2020.3.12f1
+        targetPlatform:
+          - WebGL
 
     steps:
       # Checkout
@@ -24,9 +26,8 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: Library
-          key: Library-Space-shooter-2020.3.12f1
+          key: Library-${{matrix.targetPlatform}}-${{matrix.unityVersion}}
           restore-keys: |
-            Library-Space-shooter-
             Library-
 
       # Build
@@ -36,17 +37,17 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           versioning: Semantic
-          targetPlatform: WebGL
+          targetPlatform: ${{matrix.targetPlatform}}
 
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
-          path: build
+          name: Build-${{matrix.targetPlatform}}
+          path: build/${{matrix.targetPlatform}}
 
       # Deploy
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          folder: build/${{matrix.targetPlatform}}/${{matrix.targetPlatform}} # The folder the action should deploy.
