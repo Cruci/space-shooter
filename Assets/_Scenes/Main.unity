@@ -1187,14 +1187,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f82fdae4a7d68d4e93e51c061f88c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazard: {fileID: 4668299539146097018, guid: 946f324efda9f6d4989e0da08e3ce8ef, type: 3}
+  hazards:
+  - {fileID: 4668299539146097018, guid: 946f324efda9f6d4989e0da08e3ce8ef, type: 3}
+  - {fileID: 8199384558590315629, guid: ea47e2d71ad968a498f618164db32861, type: 3}
   spawnValues: {x: 21, y: 0, z: 67}
   scoreText: {fileID: 574754801}
   restartText: {fileID: 9983838}
   gameOverText: {fileID: 83431652}
   hazardCount: 10
   spawnWait: 0.5
-  startWait: 1
+  startWait: 1.5
   waveWait: 4
 --- !u!82 &1767896290
 AudioSource:
@@ -1347,9 +1349,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1813041037262341914, guid: 6b63e95ec864d364baae3503066664f6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3879733997888747371, guid: 6b63e95ec864d364baae3503066664f6, type: 3}
       propertyPath: m_Volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147433481654794143, guid: 6b63e95ec864d364baae3503066664f6, type: 3}
+      propertyPath: m_Name
+      value: Weapon Spawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b63e95ec864d364baae3503066664f6, type: 3}
