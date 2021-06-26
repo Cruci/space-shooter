@@ -4,14 +4,13 @@ using UnityEngine;
 public class Boundary
 {
     public float xMin, xMax, zMin, zMax;
-
 }
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public Boundary boundary;
-    public GameObject projectileSpawn;
+    public GameObject weapon;
 
     public float speed;
     public float tilt;
@@ -23,32 +22,18 @@ public class PlayerController : MonoBehaviour
     private float nextFire;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerProjectileAudio = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
+        playerProjectileAudio = gameObject.GetComponent<AudioSource>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            projectilesSpawns = GameObject.FindGameObjectsWithTag("Projectile");
-
-            foreach (GameObject spawn in projectilesSpawns)
-            {
-                Instantiate(projectileSpawn, spawn.transform.position, spawn.transform.rotation);
-            }
-            
-            if (playerProjectileAudio != null)
-            {
-                playerProjectileAudio.Play();
-            }
-        }
+        ShootWeapon();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -64,5 +49,29 @@ public class PlayerController : MonoBehaviour
         );
 
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * (-tilt / 10));
+    }
+
+    private void ShootWeapon()
+    {
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            InstantiateWeaponGameObjects("Projectile");
+        }
+    }
+
+    private void InstantiateWeaponGameObjects(string weaponType)
+    {
+        projectilesSpawns = GameObject.FindGameObjectsWithTag(weaponType);
+
+        foreach (GameObject spawn in projectilesSpawns)
+        {
+            Instantiate(weapon, spawn.transform.position, spawn.transform.rotation);
+        }
+
+        if (playerProjectileAudio != null)
+        {
+            playerProjectileAudio.Play();
+        }
     }
 }
