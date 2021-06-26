@@ -10,6 +10,11 @@ TagManager:
   - Boundary
   - ScoreText
   - Enemy
+  - Rocket
+  - RocketSpawn
+  - Bolt
+  - Missile
+  - EnemyBolt
   layers:
   - Default
   - TransparentFX
