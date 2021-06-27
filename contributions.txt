@@ -1,7 +1,9 @@
 Asset authors:
-3D Models and textures, www.kenney.nl
-Player audio and Asteroid audio, www.kenney.nl
+Player, enemy and hazard 3D Models and textures, www.kenney.nl
+Powerup texture, www.kenney.nl
+Player, enemy and hazard explosion audio, www.kenney.nl
 UI Font, www.kenney.nl
+Missile audio. Author: rubberduck; opengameart.org
 Player explosion spritesheet, sinestesia; opengameart.org. Facebook: /sinestesiastudio
 Background music: through space. Author: maxstack; opengameart.org
 Background image: galaxy uno. Author: freedohn; opengameart.org
