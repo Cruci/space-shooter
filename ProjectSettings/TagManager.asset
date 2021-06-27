@@ -15,6 +15,10 @@ TagManager:
   - Bolt
   - Missile
   - EnemyBolt
+  - PowerUp
+  - CleanUp
+  - MissilePowerUp
+  - MissileSpawn
   layers:
   - Default
   - TransparentFX

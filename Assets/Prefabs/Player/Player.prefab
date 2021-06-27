@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1545058481144051646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1545058481144051641}
-  m_Layer: 0
-  m_Name: Missile Spawn 2
-  m_TagString: Rocket
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1545058481144051641
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545058481144051646}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 3.65, z: 0.8000001}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
-  m_Father: {fileID: 3832002503382332211}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1813041037262341914
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +12,6 @@ GameObject:
   - component: {fileID: 670324227}
   - component: {fileID: 670324226}
   - component: {fileID: 3879733997888747371}
-  - component: {fileID: 5802782824654336871}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -62,6 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6437891675799865802}
+  - {fileID: 3832002503382332211}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,7 +45,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -100,6 +70,8 @@ MonoBehaviour:
     zMin: -2.5
     zMax: 50
   weapon: {fileID: 2015575881783262087, guid: 856becf177659d54bb75600258ca24b5, type: 3}
+  activePowerUps:
+  - {fileID: 0}
   speed: 50
   tilt: 3
   fireRate: 0.75
@@ -199,54 +171,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5802782824654336871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813041037262341914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a22a44778c79a54488b24efc57066a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 6095850824742927503, guid: 3a8a71d7755510746bbeb0ac34086290, type: 3}
-  projectileSpawns:
-  - {fileID: 3210690338447510030}
-  - {fileID: 1545058481144051641}
-  fireRate: 2
-  delay: 2
---- !u!1 &3210690338447510031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3210690338447510030}
-  m_Layer: 0
-  m_Name: Missile Spawn
-  m_TagString: Rocket
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3210690338447510030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3210690338447510031}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.85, y: 3.65, z: 0.8000001}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
-  m_Father: {fileID: 3832002503382332211}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4179216598420555247
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,16 +254,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5746137069329320504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4179216598420555244}
   - {fileID: 4179216599979433201}
-  - {fileID: 3210690338447510030}
-  - {fileID: 1545058481144051641}
-  m_Father: {fileID: 6437891675799865802}
-  m_RootOrder: 2
+  m_Father: {fileID: 1813041037262341913}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6437891675799508458
 GameObject:
@@ -373,7 +295,6 @@ Transform:
   m_Children:
   - {fileID: 6437891676116006981}
   - {fileID: 6437891675851304909}
-  - {fileID: 3832002503382332211}
   m_Father: {fileID: 1813041037262341913}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
