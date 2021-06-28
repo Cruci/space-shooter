@@ -34,13 +34,8 @@ public class GameController : MonoBehaviour
 
     private void Update ()
     {
-        if (restart)
-        {
-            if (Input.GetKeyDown (KeyCode.R))
-            {
-                SceneManager.LoadScene("Main");
-            }
-        }
+        CheckForGameOver();
+        CheckForRestart();
     }
 
     private IEnumerator SpawnWaves()
@@ -60,12 +55,30 @@ public class GameController : MonoBehaviour
 
             if (gameOver)
             {
-                restartText.text = "Press 'R' for Restart";
-                restart = true;
                 break;
             }
         }
 
+    }
+
+    private void CheckForGameOver()
+    {
+        if (gameOver)
+        {
+            restartText.text = "Press 'R' for Restart";
+            restart = true;
+        }
+    }
+
+    private void CheckForRestart()
+    {
+        if (restart)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("Main");
+            }
+        }
     }
 
     public void AddScore (int newScoreValue)
