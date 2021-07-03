@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2990304041281392565}
   - component: {fileID: 2990304041281392553}
   - component: {fileID: -793856257155670317}
+  - component: {fileID: -6409357922394549094}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: PowerUp
@@ -112,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2990304041281392564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 12}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2129123160959832738}
@@ -190,3 +191,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 2990304041281392564}
   lifetime: 5
+--- !u!114 &-6409357922394549094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990304041281392564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b5ca737026029499e4424defcdf3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2990304041281392565}
+  speed: -5
