@@ -30,7 +30,7 @@ public class MissilePowerUpController : MonoBehaviour
 
         Transform projectileSpawn = projectileSpawns[Random.Range(0, projectileSpawns.Length)];
 
-        if (projectileSpawn)
+        if (projectileSpawn && enemyObject)
         {
             Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
             audioSource.Play();

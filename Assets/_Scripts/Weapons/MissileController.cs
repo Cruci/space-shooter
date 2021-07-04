@@ -10,6 +10,7 @@ public class MissileController : MonoBehaviour
     private Rigidbody missileRigidbody;
     private Transform missileTransform;
     private GameObject enemyObject;
+    private Quaternion targetRotation;
 
     // Start is called before the first frame update
     private void Start()
@@ -17,6 +18,7 @@ public class MissileController : MonoBehaviour
         missileRigidbody = GetComponent<Rigidbody>();
         missileTransform = GetComponent<Transform>();
         enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+
         if (!enemyObject)
         {
             return;
@@ -29,10 +31,36 @@ public class MissileController : MonoBehaviour
     {
         if (enemyObject && target && missileRigidbody)
         {
-            Vector3 targetPosition = target ? target.position : new Vector3(0f, 0f, 0f);
-            missileRigidbody.velocity = missileTransform.forward * speed;
-            Quaternion targetRotation = Quaternion.LookRotation(targetPosition - missileTransform.position);
-            missileRigidbody.MoveRotation(Quaternion.RotateTowards(missileTransform.rotation, targetRotation, rotateSpeed));
+            Vector3 targetPosition = target.position;
+            FindEnemyPosition(targetPosition);
         }
+
+        if (!target && missileRigidbody)
+        {
+            FindNextEnemyPosition();
+        }
+    }
+
+    private void FindNextEnemyPosition()
+    {
+        enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+
+        if (enemyObject)
+        {
+            Vector3 targetPosition = enemyObject.transform.position;
+            FindEnemyPosition(targetPosition);
+        }
+
+        if (!enemyObject)
+        {
+            missileRigidbody.velocity = missileTransform.forward * speed;
+        }
+    }
+
+    private void FindEnemyPosition(Vector3 targetPosition)
+    {
+        missileRigidbody.velocity = missileTransform.forward * speed;
+        targetRotation = Quaternion.LookRotation(targetPosition - missileTransform.position);
+        missileRigidbody.MoveRotation(Quaternion.RotateTowards(missileTransform.rotation, targetRotation, rotateSpeed));
     }
 }
